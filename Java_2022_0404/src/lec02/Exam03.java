@@ -1,7 +1,6 @@
-package lec01;
+package lec02;
 
-
-public class Exam02 {
+public class Exam03 {
 
 	public static void main(String[] args) {
 		Person_manager a_Person_manager = new Person_manager();
@@ -30,49 +29,29 @@ public class Exam02 {
 
 class Person_manager {
 	// 전역변수
-	Person a_Person0;
-	Person a_Person1;
-	Person a_Person2;
-
+	Person[] b_Person;
 	int last_Person;
 
 	Person_manager() {
 		last_Person = 0;
+		b_Person = new Person[100];
 	}
 
 	void add_Person(String p_name, int p_age) {
 		// 지역 변수
 		int num = last_Person + 1; // num = 1 , 2 , 3
 		Person a_Person = new Person();
-		a_Person.name = p_name;
 		a_Person.num = num;
+		a_Person.name = p_name;
 		a_Person.age = p_age;
-		if (num == 1) {
-			a_Person0 = a_Person;
-		}
-		else if (num == 2) {
-			a_Person1 = a_Person;
-		}
-		else if (num == 3) {
-			a_Person2 = a_Person;
-		}
+		
+		b_Person[num - 1] = a_Person; 
 		System.out.printf("나이가 %d인 %d번째 사람(%s)이 추가되었습니다.\n", p_age, num, p_name);
 		last_Person = num; // last_Person = 1 , 2 , 3
 	}
 
 	Person get_Person(int num) {
-		if (num == 1) {
-			return a_Person0;
-		}
-		else if (num == 2) {
-			return a_Person1;
-		}
-		else if (num == 3) {
-			return a_Person2;
-		}
-		else {
-			return null;
-		}
+		return b_Person[num - 1];
 	}
 }
 
@@ -86,6 +65,3 @@ class Person {
 	}
 
 }
-
-
-
