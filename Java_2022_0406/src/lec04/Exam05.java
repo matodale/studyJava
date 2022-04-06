@@ -23,7 +23,7 @@ class 사람{
 	String 사람 = "사람";
 	int 달리기_속력;
 	void 달리다() {
-		System.out.println(사람 + "이 " + 달리기_속력+"km/h로 달립니다.");
+		System.out.println(사람 + "이 " + this.달리기_속력+"km/h로 달립니다.");
 	}
 }
 
